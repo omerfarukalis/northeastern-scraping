@@ -14,13 +14,6 @@ import time
 import json
 from typing import List
 
-# google_api_key = "AIzaSyD5Kzt9tsU-h4PkhjGk-r68eocp_hFK6Wg"
-# google_cx = "15ce28fe956da4f10"
-# url  = f"https://www.googleapis.com/customsearch/v1?key={google_api_key}&cx={google_cx}&q=usama+fayyad&num=10"
-# response = requests.get(url)
-# status_code = response.status_code
-# print(response.json())
-# print(status_code)
 
 # def __init__(self, name: str, surname: str, eai_url: str):
 #     self.name = name
