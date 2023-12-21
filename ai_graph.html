@@ -1,0 +1,468 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+                <link href="lib/tom-select/tom-select.css" rel="stylesheet">
+                <script src="lib/tom-select/tom-select.complete.min.js"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 750px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+                <div id="select-menu" class="card-header">
+                    <div class="row no-gutters">
+                        <div class="col-10 pb-2">
+                            <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="selectNode([value]);"
+                            id="select-node"
+                            placeholder="Select node..."
+                            >
+                                <option selected>Select a Node by ID</option>
+                                
+                                    <option value="EAI Faculty">EAI Faculty</option>
+                                
+                                    <option value="Angela Kilby">Angela Kilby</option>
+                                
+                                    <option value="Byron Wallace">Byron Wallace</option>
+                                
+                                    <option value="Dagmar Sternard">Dagmar Sternard</option>
+                                
+                                    <option value="Jennifer Dy">Jennifer Dy</option>
+                                
+                                    <option value="Healthcare">Healthcare</option>
+                                
+                                    <option value="Precision Medicine">Precision Medicine</option>
+                                
+                                    <option value="Medical Imaging">Medical Imaging</option>
+                                
+                                    <option value="Industry">Industry</option>
+                                
+                                    <option value="Banking">Banking</option>
+                                
+                                    <option value="Retail">Retail</option>
+                                
+                                    <option value="Telco">Telco</option>
+                                
+                                    <option value="Manufacturing">Manufacturing</option>
+                                
+                                    <option value="Renewables">Renewables</option>
+                                
+                                    <option value="Life Sciences">Life Sciences</option>
+                                
+                                    <option value="Information Technologies">Information Technologies</option>
+                                
+                                    <option value="Churn Management">Churn Management</option>
+                                
+                                    <option value="Best Next Action">Best Next Action</option>
+                                
+                                    <option value="Best Next Product">Best Next Product</option>
+                                
+                                    <option value="Personalized Pricing">Personalized Pricing</option>
+                                
+                                    <option value="Marketing Spend Allocation">Marketing Spend Allocation</option>
+                                
+                                    <option value="New Customer Acquisition">New Customer Acquisition</option>
+                                
+                                    <option value="Branch Optimization">Branch Optimization</option>
+                                
+                                    <option value="Credit Risk Analytics">Credit Risk Analytics</option>
+                                
+                                    <option value="Fraud Analytics">Fraud Analytics</option>
+                                
+                                    <option value="Cybersecurity">Cybersecurity</option>
+                                
+                                    <option value="Anti money laundering">Anti money laundering</option>
+                                
+                                    <option value="Cash Management">Cash Management</option>
+                                
+                                    <option value="Predictive Maintenance">Predictive Maintenance</option>
+                                
+                                    <option value="ATM/Branch Location Prediction">ATM/Branch Location Prediction</option>
+                                
+                                    <option value="Knowledge Management">Knowledge Management</option>
+                                
+                                    <option value="HR Analytics">HR Analytics</option>
+                                
+                                    <option value="AIOps">AIOps</option>
+                                
+                                    <option value="Clinical Trials">Clinical Trials</option>
+                                
+                                    <option value="Regulatory Compliance">Regulatory Compliance</option>
+                                
+                                    <option value="Predictive Diagnosis">Predictive Diagnosis</option>
+                                
+                                    <option value="Pandemic Prediction">Pandemic Prediction</option>
+                                
+                                    <option value="Social Determinants of Health">Social Determinants of Health</option>
+                                
+                                    <option value="Conversational AI">Conversational AI</option>
+                                
+                                    <option value="In-house care">In-house care</option>
+                                
+                                    <option value="Occupational Health and Safety">Occupational Health and Safety</option>
+                                
+                                    <option value="AI for Pharmacovigilance">AI for Pharmacovigilance</option>
+                                
+                                    <option value="Medical Claims Processing">Medical Claims Processing</option>
+                                
+                                    <option value="Automating Prior Authorization">Automating Prior Authorization</option>
+                                
+                                    <option value="Emergency Visits">Emergency Visits</option>
+                                
+                                    <option value="Healthcare Supply Chain">Healthcare Supply Chain</option>
+                                
+                                    <option value="Healthcare Procurement">Healthcare Procurement</option>
+                                
+                                    <option value="Patient Service Analytics">Patient Service Analytics</option>
+                                
+                                    <option value="Clinical Lab Testing">Clinical Lab Testing</option>
+                                
+                                    <option value="Virtual Medical Assistants">Virtual Medical Assistants</option>
+                                
+                                    <option value="Question Answering">Question Answering</option>
+                                
+                                    <option value="Demand Forecasting">Demand Forecasting</option>
+                                
+                                    <option value="Hospital Admission">Hospital Admission</option>
+                                
+                                    <option value="Wearable AI">Wearable AI</option>
+                                
+                                    <option value="Data Quality and Integration">Data Quality and Integration</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col-2 pb-2">
+                            <button type="button" class="btn btn-primary btn-block" onclick="neighbourhoodHighlight({nodes: []});">Reset Selection</button>
+                        </div>
+                    </div>
+                </div>
+            
+            
+              <div id="filter-menu" class="card-header">
+                <div class="row no-gutters">
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="updateFilter(value, 'item')"
+                            id="select-item"
+                        >
+                        <option value="">Select a network item</option>
+                        <option value="edge">edge</option>
+                        <option value="node">node</option>
+                    </select>
+                  </div>
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="updateFilter(value, 'property')"
+                            id="select-property"
+                        >
+                        <option value="">Select a property...</option>
+                    </select>
+                  </div>
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            id="select-value"
+                        >
+                        <option value="">Select value(s)...</option>
+                    </select>
+                  </div>
+                  <div class="col-1 pb-2">
+                    <button type="button" class="btn btn-primary btn-block" onclick="highlightFilter(filter);">Filter</button>
+                  </div>
+                  <div class="col-2 pb-2">
+                    <button type="button" class="btn btn-primary btn-block" onclick="clearFilter(true)">Reset Selection</button>
+                  </div>
+                </div>
+              </div>
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+                  new TomSelect("#select-node",{
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      }
+                  });
+              
+
+              
+                  // explicitly using onItemAdd and this function as we need to save multiple values
+                  let updateValueFilter = function() {
+                      return function () {
+                      filter['value'].push(arguments[0])
+                      }
+                  }
+
+                  let valueControl = new TomSelect("#select-value",{
+                      maxItems: null,
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: updateValueFilter()
+                  });
+
+                  let addValues = function() {
+                      return function () {
+                          // clear the current value options and add the selected attribute values
+                          // tom-select handles duplicates
+                          let selectedProperty = arguments[0];
+                          valueControl.clear();
+                          valueControl.clearOptions();
+                          filter['value'] = []
+                          if (filter['item'] === 'node') {
+                              for (let each in allNodes) {
+                                  valueControl.addOption({
+                                      id:allNodes[each][selectedProperty],
+                                      title:allNodes[each][selectedProperty]
+                                  })
+                              }
+                          }
+                          else if (filter['item'] === 'edge') {
+                              for (let each in allEdges) {
+                                  valueControl.addOption({
+                                      id:allEdges[each][selectedProperty],
+                                      title:allEdges[each][selectedProperty]
+                                  })
+                              }
+                          }
+                      }
+                  };
+
+                  let propControl = new TomSelect("#select-property",{
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: addValues()
+                  });
+
+                  let addProperties = function() {
+                      return function () {
+                          // loops through the selected network item and adds the attributes to dropdown
+                          // tom-select handles duplicates
+                          clearFilter(false)
+                          if (arguments[0] === 'edge') {
+                              for (let each in allEdges) {
+                                  if (allEdges.hasOwnProperty(each)) {
+                                      for (let eachProp in allEdges[each]) {
+                                          if (allEdges[each].hasOwnProperty(eachProp)) {
+                                              propControl.addOption({id: eachProp, title: eachProp})
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                          else if (arguments[0] === 'node') {
+                              for (let each in allNodes) {
+                                  if (allNodes.hasOwnProperty(each)) {
+                                      for (let eachProp in allNodes[each]) {
+                                          if (allNodes[each].hasOwnProperty(eachProp)
+                                              && (eachProp !== 'hidden' && eachProp !== 'savedLabel'
+                                                  && eachProp !== 'hiddenLabel')) {
+                                              propControl.addOption({id: eachProp, title: eachProp})
+
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  };
+
+                  let itemControl = new TomSelect("#select-item",{
+                      create: false,
+                      sortField:{
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: addProperties()
+                  });
+
+                  function clearFilter(reset) {
+                      // utility function to clear all the selected filter options
+                      // if reset is set to true, the existing filter will be removed
+                      // else, only the dropdown options are cleared
+                      propControl.clear();
+                      propControl.clearOptions();
+                      valueControl.clear();
+                      valueControl.clearOptions();
+                      filter = {
+                          item : '',
+                          property : '',
+                          value : []
+                      }
+                      if (reset) {
+                          itemControl.clear();
+                          filterHighlight({nodes: []})
+                      }
+                  }
+
+                  function updateFilter(value, key) {
+                      // key could be 'item' or 'property' and value is as selected in dropdown
+                      filter[key] = value
+                  }
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "purple", "id": "EAI Faculty", "label": "EAI Faculty", "shape": "dot", "size": 20}, {"color": "#97c2fc", "id": "Angela Kilby", "label": "Angela Kilby", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Byron Wallace", "label": "Byron Wallace", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Dagmar Sternard", "label": "Dagmar Sternard", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Jennifer Dy", "label": "Jennifer Dy", "shape": "dot", "size": 10}, {"color": "blue", "id": "Healthcare", "label": "Healthcare", "shape": "dot", "size": 20}, {"color": "#97c2fc", "id": "Precision Medicine", "label": "Precision Medicine", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Medical Imaging", "label": "Medical Imaging", "shape": "dot", "size": 10}, {"color": "red", "id": "Industry", "label": "Industry", "shape": "dot", "size": 20}, {"color": "blue", "id": "Banking", "label": "Banking", "shape": "dot", "size": 20}, {"color": "blue", "id": "Retail", "label": "Retail", "shape": "dot", "size": 20}, {"color": "blue", "id": "Telco", "label": "Telco", "shape": "dot", "size": 20}, {"color": "blue", "id": "Manufacturing", "label": "Manufacturing", "shape": "dot", "size": 20}, {"color": "blue", "id": "Renewables", "label": "Renewables", "shape": "dot", "size": 20}, {"color": "blue", "id": "Life Sciences", "label": "Life Sciences", "shape": "dot", "size": 20}, {"color": "blue", "id": "Information Technologies", "label": "Information Technologies", "shape": "dot", "size": 20}, {"color": "#97c2fc", "id": "Churn Management", "label": "Churn Management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Best Next Action", "label": "Best Next Action", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Best Next Product", "label": "Best Next Product", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Personalized Pricing", "label": "Personalized Pricing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Marketing Spend Allocation", "label": "Marketing Spend Allocation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "New Customer Acquisition", "label": "New Customer Acquisition", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Branch Optimization", "label": "Branch Optimization", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Credit Risk Analytics", "label": "Credit Risk Analytics", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Fraud Analytics", "label": "Fraud Analytics", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Cybersecurity", "label": "Cybersecurity", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Anti money laundering", "label": "Anti money laundering", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Cash Management", "label": "Cash Management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Predictive Maintenance", "label": "Predictive Maintenance", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "ATM/Branch Location Prediction", "label": "ATM/Branch Location Prediction", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Knowledge Management", "label": "Knowledge Management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "HR Analytics", "label": "HR Analytics", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "AIOps", "label": "AIOps", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Clinical Trials", "label": "Clinical Trials", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Regulatory Compliance", "label": "Regulatory Compliance", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Predictive Diagnosis", "label": "Predictive Diagnosis", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Pandemic Prediction", "label": "Pandemic Prediction", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Social Determinants of Health", "label": "Social Determinants of Health", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Conversational AI", "label": "Conversational AI", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "In-house care", "label": "In-house care", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Occupational Health and Safety", "label": "Occupational Health and Safety", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "AI for Pharmacovigilance", "label": "AI for Pharmacovigilance", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Medical Claims Processing", "label": "Medical Claims Processing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Automating Prior Authorization", "label": "Automating Prior Authorization", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Emergency Visits", "label": "Emergency Visits", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Healthcare Supply Chain", "label": "Healthcare Supply Chain", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Healthcare Procurement", "label": "Healthcare Procurement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Patient Service Analytics", "label": "Patient Service Analytics", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Clinical Lab Testing", "label": "Clinical Lab Testing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Virtual Medical Assistants", "label": "Virtual Medical Assistants", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Question Answering", "label": "Question Answering", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Demand Forecasting", "label": "Demand Forecasting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Hospital Admission", "label": "Hospital Admission", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Wearable AI", "label": "Wearable AI", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Data Quality and Integration", "label": "Data Quality and Integration", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"arrows": "to", "color": "purple", "from": "EAI Faculty", "title": "(Core faculty) Angela Kilby is an assistant professor of economics in the College of Social Sciences and Humanities. As a health economist, she studies the health and welfare effects of health care policies, focusing on pain treatment and policies to alleviate the opioid crisis.", "to": "Angela Kilby", "width": 1}, {"arrows": "to", "color": "purple", "from": "EAI Faculty", "title": "(Affiliate faculty) Byron Wallace is an associate professor in the Khoury College of Computer Science and director of the undergraduate program in data science. His research centers around natural language processing and machine learning, with an emphasis on applications in health.", "to": "Byron Wallace", "width": 1}, {"arrows": "to", "color": "purple", "from": "EAI Faculty", "title": "(Affiliate faculty) Dagmar Sternad is a University Distinguished Professor in the Electrical and Computer Engineering, Biology, and Physics departments. Her computational neuroscience and motor control research explores the learning and control of sensorimotor coordination in both healthy and neurologically impaired individuals.", "to": "Dagmar Sternard", "width": 1}, {"arrows": "to", "color": "purple", "from": "EAI Faculty", "title": "(Core faculty) Jennifer G. Dy is the Director of AI Faculty at the Institute for Experiential AI. She is a professor at the Department of Electrical and Computer Engineering, Northeastern University, Boston, MA, where she first joined the faculty in 2002.", "to": "Jennifer Dy", "width": 1}, {"arrows": "to", "color": "red", "from": "Angela Kilby", "title": "", "to": "Healthcare", "width": 1}, {"arrows": "to", "color": "red", "from": "Angela Kilby", "title": "", "to": "Precision Medicine", "width": 1}, {"arrows": "to", "color": "red", "from": "Byron Wallace", "title": "", "to": "Healthcare", "width": 1}, {"arrows": "to", "color": "red", "from": "Byron Wallace", "title": "", "to": "Precision Medicine", "width": 1}, {"arrows": "to", "color": "red", "from": "Byron Wallace", "title": "", "to": "Medical Imaging", "width": 1}, {"arrows": "to", "color": "red", "from": "Dagmar Sternard", "title": "", "to": "Healthcare", "width": 1}, {"arrows": "to", "color": "red", "from": "Dagmar Sternard", "title": "", "to": "Precision Medicine", "width": 1}, {"arrows": "to", "color": "red", "from": "Dagmar Sternard", "title": "", "to": "Medical Imaging", "width": 1}, {"arrows": "to", "color": "orange", "from": "Industry", "title": "", "to": "Banking", "width": 1}, {"arrows": "to", "color": "orange", "from": "Industry", "title": "", "to": "Retail", "width": 1}, {"arrows": "to", "color": "orange", "from": "Industry", "title": "", "to": "Telco", "width": 1}, {"arrows": "to", "color": "orange", "from": "Industry", "title": "", "to": "Manufacturing", "width": 1}, {"arrows": "to", "color": "orange", "from": "Industry", "title": "", "to": "Renewables", "width": 1}, {"arrows": "to", "color": "orange", "from": "Industry", "title": "", "to": "Healthcare", "width": 1}, {"arrows": "to", "color": "orange", "from": "Industry", "title": "", "to": "Life Sciences", "width": 1}, {"arrows": "to", "color": "orange", "from": "Industry", "title": "", "to": "Information Technologies", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Churn Management", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Best Next Action", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Best Next Product", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Personalized Pricing", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Marketing Spend Allocation", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "New Customer Acquisition", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Branch Optimization", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Credit Risk Analytics", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Fraud Analytics", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Cybersecurity", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Anti money laundering", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Cash Management", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Predictive Maintenance", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "ATM/Branch Location Prediction", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "Knowledge Management", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "HR Analytics", "width": 1}, {"arrows": "to", "color": "green", "from": "Banking", "title": "", "to": "AIOps", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "The goal of medical imaging with AI is to diagnose the diseases by machine processing of medical image data", "to": "Medical Imaging", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "Precision medicine refers to customizing the various aspects of a treatment to the most appropriate segment of patients with the idealization that each segment consists of only a single patient", "to": "Precision Medicine", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "Using Knowledge Graph technologies, public ontologies in bio-medical domain, large language models and NLP algorithms, critical knowledge could be extracted from unstructured clinical trials data.", "to": "Clinical Trials", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "NLP pipelines combined with a Knowledge Graph and large language models could be used to build an AI system for extracting the necessary data items from company documentation and regulatory documentation to speed up the compliance process", "to": "Regulatory Compliance", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "Predictive Diagnosis is building, updating and using AI models in collecting, consolidating, cleaning, engineering the above sources of data to provide diagnosis for various diseases", "to": "Predictive Diagnosis", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Pandemic Prediction", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Social Determinants of Health", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Conversational AI", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "In-house care", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Occupational Health and Safety", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "AI for Pharmacovigilance", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Medical Claims Processing", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Automating Prior Authorization", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "Using a predictive model to classify patients into severity categories would benefit who would be admitted to emergency department and who would be directed to primary clinical care. ", "to": "Emergency Visits", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Healthcare Supply Chain", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Healthcare Procurement", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Patient Service Analytics", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Clinical Lab Testing", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Virtual Medical Assistants", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Question Answering", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Demand Forecasting", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Hospital Admission", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Wearable AI", "width": 1}, {"arrows": "to", "color": "green", "from": "Healthcare", "title": "", "to": "Data Quality and Integration", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+                    network.on("click", neighbourhoodHighlight);
+                  
+
+                  
+                    network.on("selectNode", neighbourhoodHighlight);
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
